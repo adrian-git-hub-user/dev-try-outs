@@ -12,4 +12,4 @@
  * 
  *
  */
-package programming.scala.six.three;
+package programming.scala.chapter.six;
