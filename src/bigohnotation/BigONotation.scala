@@ -1,7 +1,10 @@
+package bigohnotation
+
 object BigONotation {
 
   var imp: BigOImplementations = _
-
+  val stopWatch = new StopWatch
+  
   def main(args: Array[String]) {
 
     imp = new BigOImplementations(10000)
@@ -20,9 +23,13 @@ object BigONotation {
     imp.generateRandomArray
     imp.linearSearchForValue(20)
 
-    imp = new BigOImplementations(30000)
+    imp = new BigOImplementations(40000)
     imp.generateRandomArray
     imp.linearSearchForValue(20)
+    
+    imp = new BigOImplementations(40000)
+    imp.generateRandomArray
+    imp.binarySearchForValue(20)
 
   }
 
@@ -52,8 +59,7 @@ object BigONotation {
       }
 
       println("Value Found : " + isValueInArray)
-      endTime = System.currentTimeMillis()
-      println("Linear Search took " + (endTime - startTime))
+      println("Linear Search took " + stopWatch.elapsedTime())
     }
 
     def swapValues(indexOne: Int, indexTwo: Int) = {
@@ -73,12 +79,43 @@ object BigONotation {
           }
         }
       }
-      endTime = System.currentTimeMillis()
-      println("bubbleSort took " + (endTime - startTime))
+
+      println("bubbleSort took " +stopWatch.elapsedTime())
     }
 
+    //O(log N)     
+    def binarySearchForValue(value : Int) = {
+      startTime = System.currentTimeMillis()
+      
+      var lowIndex = 0
+      var highIndex = arraySize - 1
+      
+      var timesThrough = 0
+      
+      while(lowIndex <= highIndex){
+        var middleIndex = (highIndex + lowIndex) / 2
+        
+        if(theArray(middleIndex) < value){
+          lowIndex = middleIndex + 1
+        }
+        else if(theArray(middleIndex) > value){
+          highIndex = middleIndex - 1
+        }
+        else {
+          println("Found Match in index "+middleIndex)
+          lowIndex = middleIndex + 1
+        }
+        
+        timesThrough = timesThrough + 1
+      }
+    
+      endTime = System.currentTimeMillis()
+     println("binary search took " +(startTime - endTime))
+     println("Times through "+timesThrough)
+    }
+    
     def generateRandomArray = {
-      for (i <- 0 to arraySize - 1) {
+      for (i <- 0 to arraySize - 1) yield {
         theArray(i) = ((Math.random() * 1000) + 10).toInt
       }
 

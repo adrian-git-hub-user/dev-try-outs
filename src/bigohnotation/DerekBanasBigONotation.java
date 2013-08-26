@@ -1,3 +1,4 @@
+package bigohnotation;
 // Big O notation is a way to measure how well a
 // computer algorithm scales as the amount of data
 // involved increases. It is not always a measure
@@ -16,7 +17,7 @@
 // Does the 20n^2 matter if 45n^3 = 45,000?
 // Has an O(n^3) Order of n-cubed
 
-public class BigONotation {
+public class DerekBanasBigONotation {
 
 	private int[] theArray;
 
@@ -38,16 +39,16 @@ public class BigONotation {
 		 * System.out.println(Arrays.toString(testAlgo.theArray));
 		 */
 
-		BigONotation testAlgo2 = new BigONotation(100000);
+		DerekBanasBigONotation testAlgo2 = new DerekBanasBigONotation(100000);
 		testAlgo2.generateRandomArray();
 
-		BigONotation testAlgo3 = new BigONotation(200000);
+		DerekBanasBigONotation testAlgo3 = new DerekBanasBigONotation(200000);
 		testAlgo3.generateRandomArray();
 
-		BigONotation testAlgo4 = new BigONotation(30000);
+		DerekBanasBigONotation testAlgo4 = new DerekBanasBigONotation(30000);
 		testAlgo4.generateRandomArray();
 
-		BigONotation testAlgo5 = new BigONotation(400000);
+		DerekBanasBigONotation testAlgo5 = new DerekBanasBigONotation(400000);
 		testAlgo5.generateRandomArray();
 
 		/*
@@ -282,7 +283,7 @@ public class BigONotation {
 
 	}
 
-	BigONotation(int size) {
+	DerekBanasBigONotation(int size) {
 
 		arraySize = size;
 
