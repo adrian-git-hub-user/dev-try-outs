@@ -1,4 +1,4 @@
-package java.staticimports;
+package javastaticimports.customstaticimports;
 
 public class NonStaticImport {
 	
